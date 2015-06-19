@@ -14,6 +14,8 @@
 
 #define rect_h 16
 
+static NSString *const kLineScanAnimated = @"kLineScanAnimated";
+
 @interface QRScanView ()
 
 @property (nonatomic,strong) CAShapeLayer *scanBgLayer;
@@ -149,44 +151,36 @@
 
 - (void)lineStartMove
 {
-    [self lineScanAnimated];
-}
-
-- (void)lineStopMove
-{
-    _scanLineImgView.alpha = 0;
-    
-    _lineScan = NO;
-    
-    [UIView setAnimationDelegate:nil];
-}
-
-//扫描线
-- (void)lineScanAnimated
-{
-    _scanLineImgView.alpha = 1;
-
     CGFloat x = _scanRect.origin.x;
     
     CGFloat y = _scanRect.origin.y;
     
     CGFloat w = _scanRect.size.width;
     
-    CGFloat h = _scanRect.size.height;
-    
     _scanLineImgView.frame = CGRectMake(x, y, w, 2);
     
-    [UIView animateWithDuration:3 animations:^{
-        
-        _scanLineImgView.frame = CGRectMake(x, y + h, w, 2);
-        
-    } completion:^(BOOL finished) {
-        
-        if (_lineScan)
-        {
-            [self lineScanAnimated];
-        }
-    }];
+    [_scanLineImgView.layer addAnimation:[self lineScanAnimated] forKey:kLineScanAnimated];
+}
+
+- (void)lineStopMove
+{
+    [_scanLineImgView.layer removeAnimationForKey:kLineScanAnimated];
+}
+
+//扫描线动画
+- (CABasicAnimation *)lineScanAnimated
+{
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    
+    animation.toValue = [NSNumber numberWithFloat:_scanRect.size.height];
+    
+    animation.duration = 3;
+    
+    animation.repeatCount = MAXFLOAT;
+    
+    animation.removedOnCompletion = YES;
+
+    return animation;
 }
 
 @end
