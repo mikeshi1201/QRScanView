@@ -30,11 +30,16 @@ static NSString *const kLineScanAnimated = @"kLineScanAnimated";
 
 @implementation QRScanView
 
+/**
+ *  设置扫描框大小，初始化layer
+ *
+ *  @param scanRect 扫描框大小
+ */
 - (void)setScanRect:(CGRect)scanRect
 {
     _scanRect = scanRect;
     
-    if (_scanBgLayer == nil)
+    if (_scanBgLayer == nil || _scanRectLayer == nil || _scanLineImgView == nil)
     {
         _scanBgLayer = [[CAShapeLayer alloc] init];
         
@@ -51,9 +56,9 @@ static NSString *const kLineScanAnimated = @"kLineScanAnimated";
         _scanLineImgView.image = [UIImage imageNamed:@"icon_saoyisao_line"];
         
         [self addSubview:_scanLineImgView];
+        
+        [self layoutScan];
     }
-    
-    [self layoutScan];
 }
 
 - (void)dealloc
@@ -61,6 +66,9 @@ static NSString *const kLineScanAnimated = @"kLineScanAnimated";
     [self lineStopMove];
 }
 
+/**
+ *  画背景和扫描框
+ */
 - (void)layoutScan
 {
     //背景阴影描线
@@ -148,7 +156,9 @@ static NSString *const kLineScanAnimated = @"kLineScanAnimated";
     _scanRectLayer.path = scanRectPath.CGPath;
 }
 
-
+/**
+ *  动画开始
+ */
 - (void)lineStartMove
 {
     CGFloat x = _scanRect.origin.x;
@@ -156,23 +166,32 @@ static NSString *const kLineScanAnimated = @"kLineScanAnimated";
     CGFloat y = _scanRect.origin.y;
     
     CGFloat w = _scanRect.size.width;
-    
+
+    CGFloat h = _scanRect.size.height;
+
     _scanLineImgView.frame = CGRectMake(x, y, w, 2);
     
-    [_scanLineImgView.layer addAnimation:[self lineScanAnimated] forKey:kLineScanAnimated];
+    [_scanLineImgView.layer addAnimation:[self lineScanAnimatedWithY:h] forKey:kLineScanAnimated];
 }
 
+/**
+ *  动画结束
+ */
 - (void)lineStopMove
 {
     [_scanLineImgView.layer removeAnimationForKey:kLineScanAnimated];
 }
 
-//扫描线动画
-- (CABasicAnimation *)lineScanAnimated
+/**
+ *  垂直移动动画
+ *
+ *  @return 返回动画对象
+ */
+- (CABasicAnimation *)lineScanAnimatedWithY:(CGFloat)y
 {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
     
-    animation.toValue = [NSNumber numberWithFloat:_scanRect.size.height];
+    animation.toValue = [NSNumber numberWithFloat:y];
     
     animation.duration = 3;
     
