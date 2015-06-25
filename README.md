@@ -1,2 +1,2 @@
 # QRScanView
-##扫描框的UI，仅仅是UI
+###苹果API实现二维码扫描 - iOS 7 and later
