@@ -20,6 +20,7 @@ static char *const kAVCaptureMetadataOutputQueue = "kAVCaptureMetadataOutputQueu
 
 @implementation QRScanEngine
 
+#pragma mark - Methods
 - (void)scanInitInView:(UIView *)view
 {
     //扫描引擎
@@ -67,6 +68,8 @@ static char *const kAVCaptureMetadataOutputQueue = "kAVCaptureMetadataOutputQueu
 {
     [_cSession stopRunning];
 }
+
+#pragma mark - AVCaptureMetadataOutputObjectsDelegate
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
