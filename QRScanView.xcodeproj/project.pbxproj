@@ -16,6 +16,8 @@
 		5881A6951B32CD4A0061CC97 /* QRScanViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5881A6941B32CD4A0061CC97 /* QRScanViewTests.m */; };
 		5881A6A01B32CD630061CC97 /* QRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5881A69E1B32CD630061CC97 /* QRScanView.m */; };
 		5886B1BE1B3B91700016B5E5 /* QRScanEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5886B1BD1B3B91700016B5E5 /* QRScanEngine.m */; };
+		5886B1C81B3BA9920016B5E5 /* IMG_8684.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 5886B1C71B3BA9920016B5E5 /* IMG_8684.PNG */; };
+		5886B1CA1B3BA9E90016B5E5 /* IMG_8689.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 5886B1C91B3BA9E90016B5E5 /* IMG_8689.PNG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		5881A69F1B32CD630061CC97 /* QRScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanView.h; sourceTree = "<group>"; };
 		5886B1BC1B3B91700016B5E5 /* QRScanEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanEngine.h; sourceTree = "<group>"; };
 		5886B1BD1B3B91700016B5E5 /* QRScanEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanEngine.m; sourceTree = "<group>"; };
+		5886B1C71B3BA9920016B5E5 /* IMG_8684.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_8684.PNG; sourceTree = "<group>"; };
+		5886B1C91B3BA9E90016B5E5 /* IMG_8689.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_8689.PNG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 		5881A66C1B32CD4A0061CC97 = {
 			isa = PBXGroup;
 			children = (
+				5886B1C91B3BA9E90016B5E5 /* IMG_8689.PNG */,
+				5886B1C71B3BA9920016B5E5 /* IMG_8684.PNG */,
 				5881A6A11B32CD650061CC97 /* QRScanView */,
 				5881A6771B32CD4A0061CC97 /* QRScanView */,
 				5881A6911B32CD4A0061CC97 /* QRScanViewTests */,
@@ -218,6 +224,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5881A6841B32CD4A0061CC97 /* Main.storyboard in Resources */,
+				5886B1CA1B3BA9E90016B5E5 /* IMG_8689.PNG in Resources */,
+				5886B1C81B3BA9920016B5E5 /* IMG_8684.PNG in Resources */,
 				5881A6891B32CD4A0061CC97 /* LaunchScreen.xib in Resources */,
 				5881A6861B32CD4A0061CC97 /* Images.xcassets in Resources */,
 			);
