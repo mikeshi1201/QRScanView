@@ -15,6 +15,7 @@
 		5881A6891B32CD4A0061CC97 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5881A6871B32CD4A0061CC97 /* LaunchScreen.xib */; };
 		5881A6951B32CD4A0061CC97 /* QRScanViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5881A6941B32CD4A0061CC97 /* QRScanViewTests.m */; };
 		5881A6A01B32CD630061CC97 /* QRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5881A69E1B32CD630061CC97 /* QRScanView.m */; };
+		5886B1BE1B3B91700016B5E5 /* QRScanEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5886B1BD1B3B91700016B5E5 /* QRScanEngine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		5881A6941B32CD4A0061CC97 /* QRScanViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRScanViewTests.m; sourceTree = "<group>"; };
 		5881A69E1B32CD630061CC97 /* QRScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanView.m; sourceTree = "<group>"; };
 		5881A69F1B32CD630061CC97 /* QRScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanView.h; sourceTree = "<group>"; };
+		5886B1BC1B3B91700016B5E5 /* QRScanEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanEngine.h; sourceTree = "<group>"; };
+		5886B1BD1B3B91700016B5E5 /* QRScanEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanEngine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 			children = (
 				5881A69F1B32CD630061CC97 /* QRScanView.h */,
 				5881A69E1B32CD630061CC97 /* QRScanView.m */,
+				5886B1BC1B3B91700016B5E5 /* QRScanEngine.h */,
+				5886B1BD1B3B91700016B5E5 /* QRScanEngine.m */,
 			);
 			name = QRScanView;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5881A6811B32CD4A0061CC97 /* ViewController.m in Sources */,
+				5886B1BE1B3B91700016B5E5 /* QRScanEngine.m in Sources */,
 				5881A67E1B32CD4A0061CC97 /* AppDelegate.m in Sources */,
 				5881A6A01B32CD630061CC97 /* QRScanView.m in Sources */,
 				5881A67B1B32CD4A0061CC97 /* main.m in Sources */,

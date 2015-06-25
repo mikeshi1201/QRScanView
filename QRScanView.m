@@ -111,7 +111,7 @@ static NSString *const kLineScanAnimated = @"kLineScanAnimated";
     //填充
     _scanBgLayer.fillRule = kCAFillRuleEvenOdd;
     
-    _scanBgLayer.fillColor = [[UIColor blackColor] colorWithAlphaComponent:0.7].CGColor;
+    _scanBgLayer.fillColor = [[UIColor blackColor] colorWithAlphaComponent:0.3].CGColor;
     
     _scanBgLayer.path = scanPath.CGPath;
     

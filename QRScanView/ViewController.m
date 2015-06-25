@@ -10,31 +10,70 @@
 
 #import "QRScanView.h"
 
-@interface ViewController ()
+#import "QRScanEngine.h"
+
+@interface ViewController ()<QRScanEngineDelegate,UIAlertViewDelegate>
+
+@property (nonatomic,strong) QRScanEngine *sEngine;
+
+@property (nonatomic,strong) QRScanView *QRSView;
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+#pragma mark - View life cycle
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
+    [self scanEngineInit];
 
-    //二维码底图和扫描框UI
-    QRScanView *QRSView = [[QRScanView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self scanViewInit];
+}
+
+#pragma mark - Object initialize
+- (void)scanViewInit
+{
+    //扫描框UI
+    _QRSView = [[QRScanView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     CGFloat x = ([UIScreen mainScreen].bounds.size.width - 220)/2;
     
-    QRSView.scanRect = CGRectMake(x, x + 30, 220, 220);
+    _QRSView.scanRect = CGRectMake(x, x + 30, 220, 220);
     
-    [QRSView lineStartMove];
+    [self.view addSubview:_QRSView];
     
-    [self.view addSubview:QRSView];
-    
+    [_QRSView lineStartMove];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)scanEngineInit
+{
+    //扫描引擎
+    _sEngine = [[QRScanEngine alloc] init];
+    
+    _sEngine.delegate = self;
+
+    [_sEngine startInView:self.view];
+}
+
+#pragma mark - Delegate & Selector
+- (void)QRScanEngine:(QRScanEngine *)engine output:(NSString *)output
+{
+    NSLog(@"%@",output);
+
+    [_sEngine stop];
+    
+    [_QRSView lineStopMove];
+
+    [[[UIAlertView alloc] initWithTitle:@"扫描结果" message:output delegate:self cancelButtonTitle:nil otherButtonTitles:@"开始扫描", nil] show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [_sEngine startInView:self.view];
+    
+    [_QRSView lineStartMove];
 }
 
 @end
